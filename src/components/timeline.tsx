@@ -29,6 +29,7 @@ export const Timeline = React.forwardRef<TimelineState, TimelineEditor>((props, 
     engine,
     autoReRender = true,
     onScroll: onScrollVertical,
+    classAdditions,
   } = checkedProps;
 
   const engineRef = useRef<ITimelineEngine>(engine || new TimelineEngine());
@@ -183,6 +184,7 @@ export const Timeline = React.forwardRef<TimelineState, TimelineEditor>((props, 
               setScaleCount={handleSetScaleCount}
               onScroll={onScroll}
               scrollLeft={scrollLeft}
+              classAdditions={props.classAdditions}
             />
             <EditArea
               {...checkedProps}
@@ -201,6 +203,7 @@ export const Timeline = React.forwardRef<TimelineState, TimelineEditor>((props, 
                 onScroll(params);
                 onScrollVertical && onScrollVertical(params);
               }}
+              classAdditions={props.classAdditions}
             />
             {!hideCursor && (
               <Cursor

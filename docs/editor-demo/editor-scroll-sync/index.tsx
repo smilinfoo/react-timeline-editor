@@ -6,7 +6,7 @@ import { mockData, mockEffect } from './mock';
 
 const defaultEditorData = cloneDeep(mockData);
 
-const TimelineEditor = () => {
+const TimelineEditor = (props) => {
   const [data, setData] = useState(defaultEditorData);
   const domRef = useRef<HTMLDivElement>();
   const timelineState = useRef<TimelineState>();
@@ -19,7 +19,7 @@ const TimelineEditor = () => {
           const target = e.target as HTMLDivElement;
           timelineState.current.setScrollTop(target.scrollTop);
         }}
-        className={'timeline-list'}
+        className={`timeline-list ${props.classAdditions.timeline_list}`}
       >
         {data.map((item) => {
           return (
